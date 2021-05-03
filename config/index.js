@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const config = {
+  dev: process.env.DEV === 'true',
   port: process.env.PORT || 3001,
   dbName: process.env.DB_NAME,
   dbUser: process.env.DB_USER,

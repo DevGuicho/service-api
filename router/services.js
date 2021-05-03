@@ -1,4 +1,5 @@
 const express = require('express')
+const boom = require('@hapi/boom')
 const ServicesService = require('../services/services')
 
 function apiServices(app) {
@@ -15,7 +16,7 @@ function apiServices(app) {
         data: servicesListed
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.get('/servicio', async (req, res, next) => {
@@ -26,7 +27,7 @@ function apiServices(app) {
         data: lastService
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.get('/services/last', async (req, res, next) => {
@@ -38,7 +39,7 @@ function apiServices(app) {
         data: lastService
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.get('/services/first', async (req, res, next) => {
@@ -49,7 +50,7 @@ function apiServices(app) {
         data: firstService
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.get('/service/retrieve_by_ip_port', async (req, res, next) => {
@@ -64,7 +65,7 @@ function apiServices(app) {
         data: servicesListed
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.get('/service/retrieve_by_name', async (req, res, next) => {
@@ -79,7 +80,7 @@ function apiServices(app) {
         data: sericesListed
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.get('/service/retrieve_by_ip', async (req, res, next) => {
@@ -92,7 +93,7 @@ function apiServices(app) {
         data: sericesListed
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.post('/service/create', async (req, res, next) => {
@@ -104,7 +105,7 @@ function apiServices(app) {
         data: serviceCreated
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.put('/service/update', async (req, res, next) => {
@@ -121,7 +122,7 @@ function apiServices(app) {
         data: serviceUpdated
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
   router.delete('/service/delete', async (req, res, next) => {
@@ -136,7 +137,7 @@ function apiServices(app) {
         data: serviceDeleted
       })
     } catch (error) {
-      next(error)
+      next(boom.badRequest(error.message))
     }
   })
 }
