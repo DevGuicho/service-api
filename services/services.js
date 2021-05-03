@@ -1,10 +1,10 @@
 const Service = require('../models/Service')
 
 class ServicesService {
-  async getServices({ query = [] } = { query: [] }) {
-    const filter = {}
-    query.map((query) => (filter[query.name] = query.value))
-    const servicesListed = await Service.find(filter)
+  async getServices({ query = {} } = { query: {} }) {
+    /* const filter = {}
+    query.map((query) => (filter[query.name] = query.value)) */
+    const servicesListed = await Service.find(query)
     return servicesListed || []
   }
 

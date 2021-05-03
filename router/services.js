@@ -52,6 +52,49 @@ function apiServices(app) {
       next(error)
     }
   })
+  router.get('/service/retrieve_by_ip_port', async (req, res, next) => {
+    const { ip, port } = req.body
+
+    try {
+      const servicesListed = await serviceServices.getServices({
+        query: { ip, port }
+      })
+      res.json({
+        message: `Services with ip: ${ip} and port: ${port} listed`,
+        data: servicesListed
+      })
+    } catch (error) {
+      next(error)
+    }
+  })
+  router.get('/service/retrieve_by_name', async (req, res, next) => {
+    const { name } = req.body
+
+    try {
+      const sericesListed = await serviceServices.getServices({
+        query: { name }
+      })
+      res.json({
+        message: `Services with name: ${name} listed`,
+        data: sericesListed
+      })
+    } catch (error) {
+      next(error)
+    }
+  })
+  router.get('/service/retrieve_by_ip', async (req, res, next) => {
+    const { ip } = req.body
+
+    try {
+      const sericesListed = await serviceServices.getServices({ query: { ip } })
+      res.json({
+        message: `Services with ip: ${ip} listed`,
+        data: sericesListed
+      })
+    } catch (error) {
+      next(error)
+    }
+  })
   router.post('/service/create', async (req, res, next) => {
     const service = req.body
     try {
@@ -91,70 +134,6 @@ function apiServices(app) {
       res.json({
         message: 'Service deleted',
         data: serviceDeleted
-      })
-    } catch (error) {
-      next(error)
-    }
-  })
-  router.get('/service/retrieve_by_ip', async (req, res, next) => {
-    const { ip } = req.body
-
-    try {
-      const sericesListed = await serviceServices.getServices({
-        query: [
-          {
-            name: 'ip',
-            value: ip
-          }
-        ]
-      })
-      res.json({
-        message: `Services with ip: ${ip} listed`,
-        data: sericesListed
-      })
-    } catch (error) {
-      next(error)
-    }
-  })
-  router.get('/service/retrieve_by_ip_port', async (req, res, next) => {
-    const { ip, port } = req.body
-
-    try {
-      const servicesListed = await serviceServices.getServices({
-        query: [
-          {
-            name: 'ip',
-            value: ip
-          },
-          {
-            name: 'port',
-            value: port
-          }
-        ]
-      })
-      res.json({
-        message: `Services with ip: ${ip} and port: ${port} listed`,
-        data: servicesListed
-      })
-    } catch (error) {
-      next(error)
-    }
-  })
-  router.get('/service/retrieve_by_name', async (req, res, next) => {
-    const { name } = req.body
-
-    try {
-      const sericesListed = await serviceServices.getServices({
-        query: [
-          {
-            name: 'name',
-            value: name
-          }
-        ]
-      })
-      res.json({
-        message: `Services with name: ${name} listed`,
-        data: sericesListed
       })
     } catch (error) {
       next(error)

@@ -1,0 +1,6 @@
+GET http://localhost:3001/service/retrieve_by_name
+Content-Type: application/json
+
+{
+  "name": "Serverless functions" 
+}
