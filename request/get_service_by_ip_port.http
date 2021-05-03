@@ -1,0 +1,7 @@
+GET http://localhost:3001/service/retrieve_by_ip_port
+Content-Type: application/json
+
+{
+  "ip": "128.60.240.90",
+  "port": 4001
+}

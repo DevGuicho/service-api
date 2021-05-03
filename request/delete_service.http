@@ -1,0 +1,6 @@
+DELETE  http://localhost:3001/service/delete
+Content-Type: application/json
+
+{
+  "id": "60901c5164924933d8241791"
+}

@@ -1,0 +1,7 @@
+PUT http://localhost:3001/service/update
+Content-Type: application/json
+
+{
+  "id": "6090196247c680320cf468d9",
+  "ip": "128.60.240.80"
+}

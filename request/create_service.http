@@ -1,0 +1,10 @@
+POST http://localhost:3001/service/create
+Content-Type: application/json
+
+{
+  "name": "getTimezone service",
+  "description": "With Vercel, you can deploy Serverless Functions, which are pieces of code written with backend languages that take an HTTP request and provide a response.",
+  "ip": "128.60.240.90",
+  "port": 3996,
+  "ranking": "+A"
+}
